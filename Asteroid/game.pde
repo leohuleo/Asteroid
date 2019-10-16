@@ -6,8 +6,12 @@ void game(){
       currentObject.show();
       currentObject.act();
       if(currentObject.lives == 0){
+        if(currentObject instanceof Ship){
+          mode = gameOver;
+        }else{
         myGameObjects.remove(i);
         continue;
+        }
       }
       i++;
     }

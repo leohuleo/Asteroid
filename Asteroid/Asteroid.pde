@@ -16,9 +16,9 @@ void setup(){
   ship = new Ship();
   myGameObjects = new ArrayList<GameObject>();
   myGameObjects.add(ship);
-  myGameObjects.add(new enemy());
-  myGameObjects.add(new enemy());
-  myGameObjects.add(new enemy());
+  myGameObjects.add(new enemy(100,random(0,width/2 - 100),random(0,height)));
+  myGameObjects.add(new enemy(100,random(0,width/2 - 100),random(0,height)));
+  myGameObjects.add(new enemy(100,random(500,width),random(0,height)));
 }
 
 void draw(){
@@ -49,9 +49,7 @@ void keyReleased(){
 void mouseReleased(){
   if(mode == intro){
     mode = game;
-  }else if(mode == game){
-    mode = gameOver;
-  }else{
+  }else if(mode == gameOver){
     mode = intro;
   }
 }

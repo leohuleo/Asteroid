@@ -41,8 +41,13 @@ class enemy extends GameObject{
         myGameObjects.add(new enemy(size/2,location.x,location.y));
         }
       }
+    }else if(myObj instanceof Ship){
+        if(dist(myObj.location.x,myObj.location.y,location.x,location.y) < (size/2 + myObj.size/2) && size > 25){
+          lives = 0;
+          myObj.lives -= 1;
+        }
+      }
+    i++;  
     }
-    i++;
   }
   }
-}

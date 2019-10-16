@@ -10,17 +10,17 @@ abstract class GameObject{
   
   void act(){
     location.add(velocity);
-    if (location.x > width + 50) {
-      location.x = - 50;
+    if (location.x > width + size/2) {
+      location.x = - size/2;
     }
-    if (location.x < -50) {
-      location.x += width + 50;
+    if (location.x < -size/2) {
+      location.x += width + size/2;
     }
-    if (location.y > height + 50) {
-      location.y = -50;
+    if (location.y > height + size/2) {
+      location.y = -size/2;
     }
-    if (location.y < -50) {
-      location.y += height + 50;
+    if (location.y < -size/2) {
+      location.y += height + size/2;
     } 
   }
 }
