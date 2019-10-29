@@ -23,7 +23,9 @@ class enemy extends GameObject{
     lives=1;
   }
   void show(){
-    fill(150);
+    noFill();
+    stroke(255);
+    strokeWeight(1);
     ellipse(location.x,location.y,size,size);
   }
   void act(){
@@ -32,17 +34,20 @@ class enemy extends GameObject{
   while(i<myGameObjects.size()){
     GameObject myObj = myGameObjects.get(i);
     if(myObj instanceof Bullet){
-      if(dist(myObj.location.x,myObj.location.y,location.x,location.y) < (size/2 + 10) && size > 3){
+      if(dist(myObj.location.x,myObj.location.y,location.x,location.y) < (size/2 + 10) && size > 10){
         lives = 0;
         myObj.lives = 0;
         point++;
-        if(size > 3){
+        if(size > 10){
+          for(int a = 0;a<20;a++){
+          myGameObjects.add(new particle(10,location.x,location.y));
+        }
         myGameObjects.add(new enemy(size/2,location.x,location.y));
         myGameObjects.add(new enemy(size/2,location.x,location.y));
         }
       }
     }else if(myObj instanceof Ship){
-        if(dist(myObj.location.x,myObj.location.y,location.x,location.y) < (size/2 + myObj.size/2) && size > 25){
+        if(dist(myObj.location.x,myObj.location.y,location.x,location.y) < (size/2 + myObj.size/2) && size > 10){
           lives = 0;
           myObj.lives -= 1;
         }
