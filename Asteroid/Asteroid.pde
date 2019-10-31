@@ -11,6 +11,7 @@ final int intro = 0;;
 final int game = 1;
 final int gameOver = 2;
 Ship ship;
+ufo ufo_;
 void setup(){
   size(800,600);
   background(0);

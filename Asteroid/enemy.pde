@@ -51,7 +51,7 @@ class enemy extends GameObject{
           lives = 0;
           myObj.lives -= 1;
         }
-      }
+    }
     i++;  
     }
   }

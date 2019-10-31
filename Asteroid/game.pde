@@ -2,8 +2,9 @@ void game(){
   background(0);
   int i = 0;
   time++;
-  if(time % 500 == 0){
-    myGameObjects.add(new ufo());
+  if(time % 1100 == 0){
+    ufo_ = new ufo();
+    myGameObjects.add(ufo_);
   }
   while(i < myGameObjects.size()){
       GameObject currentObject = myGameObjects.get(i);

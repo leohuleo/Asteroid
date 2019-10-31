@@ -2,22 +2,43 @@ class ufo extends GameObject{
   PVector direction;
   int cooldown;
   int threshold;
+  int lifetime;
   ufo(){
     lives = 3;
     cooldown = 0;
-    threshold = 60;
-    location = new PVector(600,400);
-    
+    threshold = 90;
+    location = new PVector(700,800);
+    lifetime = 0;
   }
   
   void show(){
+       if(lifetime < 350){
+
+      location.y -= 2;
+    }else if(lifetime >= 350 && lifetime < 650){
+
+      location.x -= 2;
+
+    }else if(lifetime >= 650 && lifetime < 1000){
+
+      location.y += 2;
+
+    }else{
+
+      lives = 0;
+
+    }
     pushMatrix();
     translate(location.x,location.y);
     image(ufo,0,0);
     popMatrix();
+    lifetime++;
   }
   void act(){
     if(cooldown > threshold){
+      myGameObjects.add(new ufoBullets());
+      cooldown = 0;
     }
+    cooldown++;
   }
 }
