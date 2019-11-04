@@ -11,6 +11,7 @@ class Ship extends GameObject {
     location = new PVector(width/2, height/2);
     velocity = new PVector(0, 0);
     direction = new PVector(0, -0.1);
+    size = 100;
   }
 
   //3.behavior function
@@ -18,6 +19,7 @@ class Ship extends GameObject {
     pushMatrix();
     translate(location.x, location.y);
     rotate(direction.heading());
+    spaceship.resize(size,size);
     image(spaceship, 0, 0);
     popMatrix();
   }
@@ -29,6 +31,7 @@ class Ship extends GameObject {
     if (leftkey) direction.rotate(-radians(2));
     if (rightkey) direction.rotate(radians(2));
     if (spacekey && cooldown > threshold){
+    shoot.play();
     myGameObjects.add(new Bullet());
     cooldown = 0;
     }

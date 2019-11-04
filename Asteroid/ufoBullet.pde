@@ -19,9 +19,9 @@ class ufoBullets extends GameObject {
     if (timer == 0) {
       lives = 0;
     }
-    if(dist(location.x,location.y,ship.location.x,ship.location.y) < (ship.size/2 + size/2)){
-    ship.lives--;
-    lives = 0;
+    if(dist(location.x,location.y,ship.location.x,ship.location.y) < (ship.size / 2 - 30 + size / 2)){
+      ship.lives --;
+      lives = 0;
     }
   }
 }

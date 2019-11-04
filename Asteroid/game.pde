@@ -1,7 +1,6 @@
 void game(){
   background(0);
   int i = 0;
-  time++;
   if(time % 1100 == 0){
     ufo_ = new ufo();
     myGameObjects.add(ufo_);
@@ -13,6 +12,7 @@ void game(){
       if(currentObject.lives == 0){
         if(currentObject instanceof Ship){
           mode = gameOver;
+          myGameObjects.clear();
         }else{
         myGameObjects.remove(i);
         continue;
@@ -26,4 +26,8 @@ void game(){
   for(int a = 0;a<ship.lives;a++){
     image(life,50+a*30,50);
   }
+  if(point == 48){
+    mode = gameOver;
+  }
+  time++;
 }

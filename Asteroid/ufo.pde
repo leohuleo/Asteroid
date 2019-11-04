@@ -4,11 +4,12 @@ class ufo extends GameObject{
   int threshold;
   int lifetime;
   ufo(){
-    lives = 3;
+    lives = 2;
     cooldown = 0;
     threshold = 90;
     location = new PVector(700,800);
     lifetime = 0;
+    size = 100;
   }
   
   void show(){
@@ -30,6 +31,7 @@ class ufo extends GameObject{
     }
     pushMatrix();
     translate(location.x,location.y);
+    ufo.resize(size,size - 50);
     image(ufo,0,0);
     popMatrix();
     lifetime++;

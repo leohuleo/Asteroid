@@ -1,4 +1,11 @@
 boolean upkey,downkey,leftkey,rightkey,spacekey;
+import processing.sound.*;
+SoundFile shoot;
+SoundFile explosion;
+String audioName = "shoot.mp3";
+String audioName2 = "explosion.mp3";
+String path2;
+String path;
 PImage spaceship;
 PImage ufo;
 PImage life;
@@ -25,10 +32,10 @@ void setup(){
   ship = new Ship();
   myGameObjects = new ArrayList<GameObject>();
   particleList = new ArrayList<particle>();
-  myGameObjects.add(ship);
-  myGameObjects.add(new enemy(100,random(0,width/2 - 100),random(0,height)));
-  myGameObjects.add(new enemy(100,random(0,width/2 - 100),random(0,height)));
-  myGameObjects.add(new enemy(100,random(500,width),random(0,height)));
+  path = sketchPath(audioName);
+  path2 = sketchPath(audioName2);
+  explosion = new SoundFile(this,path2);
+  shoot = new SoundFile(this,path);
 }
 
 void draw(){
@@ -58,6 +65,10 @@ void keyReleased(){
 }
 void mouseReleased(){
   if(mode == intro){
+    myGameObjects.add(ship);
+    myGameObjects.add(new enemy(100,random(0,width/2 - 100),random(0,height)));
+    myGameObjects.add(new enemy(100,random(0,width/2 - 100),random(0,height)));
+    myGameObjects.add(new enemy(100,random(500,width),random(0,height)));
     mode = game;
   }else if(mode == gameOver){
     mode = intro;

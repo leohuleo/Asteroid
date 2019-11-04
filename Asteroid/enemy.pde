@@ -38,6 +38,7 @@ class enemy extends GameObject{
         lives = 0;
         myObj.lives = 0;
         point++;
+        explosion.play();
         if(size > 10){
           for(int a = 0;a<20;a++){
           myGameObjects.add(new particle(10,location.x,location.y));
@@ -47,9 +48,10 @@ class enemy extends GameObject{
         }
       }
     }else if(myObj instanceof Ship){
-        if(dist(myObj.location.x,myObj.location.y,location.x,location.y) < (size/2 + myObj.size/2) && size > 10){
+        if(dist(myObj.location.x,myObj.location.y,location.x,location.y) < (size/2 + myObj.size/2 - 30) && size > 10){
           lives = 0;
           myObj.lives -= 1;
+          explosion.play();
         }
     }
     i++;  
